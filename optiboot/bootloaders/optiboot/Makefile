@@ -155,7 +155,7 @@ ifdef BAUD_RATE
 BAUD_RATE_CMD = -DBAUD_RATE=$(BAUD_RATE)
 dummy = FORCE
 else
-BAUD_RATE_CMD = -DBAUD_RATE=115200
+BAUD_RATE_CMD = -DBAUD_RATE=19600
 endif
 
 ifdef LED_START_FLASHES
@@ -289,9 +289,16 @@ atmega168_isp: isp
 atmega16: TARGET = atmega16
 atmega16: MCU_TARGET = atmega16
 atmega16: CFLAGS += $(COMMON_OPTIONS)
-atmega16: AVR_FREQ ?= 16000000L 
+atmega16: AVR_FREQ ?= 8000000L 
 atmega16: $(PROGRAM)_atmega16.hex
 atmega16: $(PROGRAM)_atmega16.lst
+
+atmega16_isp: atmega16
+atmega16_isp: TARGET = atmega16
+atmega16_isp: MCU_TARGET = atmega16
+atmega16_isp: HFUSE ?= 98
+atmega16_isp: LFUSE ?= D4
+atmega16_isp: isp
 
 atmega328: TARGET = atmega328
 atmega328: MCU_TARGET = atmega328p
