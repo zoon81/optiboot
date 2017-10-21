@@ -1,3 +1,10 @@
+###### Modifications between my fork and the original one
+I using optiboot on my atmega16 development board. I custumised the Makefile to fit my setup. <br />
+You can simply compile this fork by :```make atmega16``` <br />
+And you can flash by : ```make atmega16_isp``` <br />
+Important! I set the m16 clock to internal 8Mhz via fuse bits, 19200 baudrate for bootloader uart, and I used usbasp programer to flashing it.If you need different kind of setting, check the Makefile in ./optiboot/bootloaders/optiboot/
+started at line 272.And Makefile.isp in the same directory for the isp configurations.
+
 ## Optiboot Bootloader for Arduino and Atmel AVR ##
 
 ![docs/optiboot.png](docs/optiboot.png)
